@@ -1,6 +1,6 @@
-// Struct Simple Example
-
 #![allow(dead_code, unused_variables)]
+
+// Struct Simple Example
 
 struct Employee {
     name: String,
@@ -19,13 +19,13 @@ enum Designation {
 }
 
 fn main() {
-    let emp1 = Employee {
+    let emp1: Employee = Employee {
         name: String::from("Sridhar"),
         age: 35,
         designation: Designation::Manager
     };
 
-    let emp2 = Employee {
+    let emp2: Employee = Employee {
         name: String::from("Vasanth"),
         age: 21,
         designation: Designation::Intern

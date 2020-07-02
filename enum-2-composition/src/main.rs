@@ -1,6 +1,6 @@
-// Composition using Enum
-
 #![allow(dead_code, unused_variables, unused_assignments)]
+
+// Composition using Enum
 
 struct IpV4Addr {
     addr: (u8, u8, u8, u8)
@@ -75,8 +75,8 @@ impl IpAddr {
 }
 
 fn main() {
-    let x = IpAddr::new("10.20.1.153");
-    let y = IpAddr::new("00:00:00:00:FF:BE:BA:BC");
+    let x: IpAddr = IpAddr::new("10.20.1.153");
+    let y: IpAddr = IpAddr::new("00:00:00:00:FF:BE:BA:BC");
 
     println!("\n x - {}", x.to_string());
     println!("\n y - {}", y.to_string());

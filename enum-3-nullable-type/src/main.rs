@@ -1,6 +1,6 @@
-//  Nullable Types using Enum
-
 #![allow(dead_code, unused_variables, unused_assignments)]
+
+//  Nullable Types using Enum
 
 enum NullableInt {
     Int(i32),
@@ -8,8 +8,9 @@ enum NullableInt {
 }
 
 fn main() {
-    let mut a = NullableInt::Undefined;
-
+    let mut a: NullableInt;
+    
+    a = NullableInt::Undefined;
     print_nullable_int(&a);
 
     a = NullableInt::Int(100);
@@ -19,10 +20,9 @@ fn main() {
 }
 
 fn print_nullable_int(x: &NullableInt) {
-    if let NullableInt::Int(value) = x {
-        println!("\n Value is {}", value);
-    } else {
-        println!("\n Value is `Undefined`");
+    match x {
+        NullableInt::Int(value) => { println!("\n Value is {}", value); },
+        NullableInt::Undefined => { println!("\n Value is `Undefined`"); }
     }
 }
 
@@ -32,3 +32,17 @@ fn incr_int(x: &mut NullableInt) {
         NullableInt::Undefined => {}
     }
 }
+
+/*
+
+struct Employee {
+    name: String,
+    age: u8
+}
+
+enum NullableEmployee {
+    Valid(Employee),
+    Null
+}
+
+*/

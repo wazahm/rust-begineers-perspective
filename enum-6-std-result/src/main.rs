@@ -1,8 +1,6 @@
-// Standart library Result<T, E> Enum
-
 #![allow(dead_code, unused_variables)]
 
-use std::io;
+// Standart library Result<T, E> Enum
 
 // # std::result::Result 
 // ---------------------
@@ -26,17 +24,32 @@ fn write_string_to_txt_file(file_name: String, data: String) -> Result<usize, St
     }
 }
 
-fn decrypt(file_name: String) -> Result<Vec<u8>, io::Error> {
+enum FileError {
+    InvalidFile,
+    PermissionDenied,
+    UnexpectedEof
+}
+
+fn decrypt(file_name: String) -> Result<Vec<u8>, FileError> {
     let data: Vec<u8> = Vec::new();
+
+    let file_not_exists = false;
     let permission_denied = false;
+    let file_read = false;
+ 
     /*
         1) open the file
         2) read the data
         3) decrypt the content and store it in "data"
         4) close the file
     */
-    if permission_denied {
-        return Result::Err(io::Error::new(io::ErrorKind::PermissionDenied, "The file is not accessible"));
+
+    if file_not_exists {
+        return Result::Err(FileError::InvalidFile);
+    } else if permission_denied {
+        return Result::Err(FileError::PermissionDenied);
+    } else if file_read {
+        return Result::Err(FileError::UnexpectedEof);
     } else {
         return Result::Ok(data);
     }

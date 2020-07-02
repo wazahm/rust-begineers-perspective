@@ -1,6 +1,6 @@
-// Return types using Enum
-
 #![allow(dead_code, unused_variables)]
+
+// Return types using Enum
 
 enum FileOpResult {
     Success,

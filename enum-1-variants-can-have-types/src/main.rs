@@ -1,6 +1,6 @@
-// Enum variants can have type
-
 #![allow(dead_code, unused_variables)]
+
+// Enum variants can have type
 
 enum NumStr {
     Num(i32),
@@ -8,8 +8,8 @@ enum NumStr {
 }
 
 fn main() {
-    let x = 5;
-    let y = String::from("Hello");
+    let x: i32 = 5;
+    let y: String = String::from("Hello");
     
     let mut z: NumStr = NumStr::Num(x);
     print_num_str(z);
@@ -20,17 +20,11 @@ fn main() {
 
 fn print_num_str(x: NumStr) {
     match x {
-        NumStr::Num(zz) => {
-            println!("\n It is a Number - {}", zz);
+        NumStr::Num(int_val) => {
+            println!("\n It is a Number - {}", int_val);
         },
-        NumStr::Str(value) => { println!("\n It is a String - {}", value); }
+        NumStr::Str(str_val) => {
+            println!("\n It is a String - {}", str_val);
+        }
     }
 }
-
-//
-// # Equivalent in C
-// -----------------
-//
-//  void print_num_str(void* data, int type);
-//
-//

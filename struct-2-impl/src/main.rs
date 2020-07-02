@@ -1,6 +1,6 @@
-// Struct Impl Example
-
 #![allow(dead_code, unused_variables)]
+
+// Struct Impl Example
 
 enum Designation {
     CEO,
@@ -31,7 +31,6 @@ impl Employee {
             Designation::SDE1 => { ret_val.push_str("Sofware Developer"); },
             Designation::Intern => { ret_val.push_str("Intern"); },
         }
-
         return ret_val;
     }
 }
